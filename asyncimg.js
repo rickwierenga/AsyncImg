@@ -1,8 +1,10 @@
 /* https://github.com/rickwierenga/AsyncImg */
 
-$(function() {
-    $('img[async-src]').each(function() {
-            $(this).attr( 'src', $(this).attr('async-src'));
-        }
-    );
+window.addEventListener('load', function (){
+  var asyncImgs = document.querySelectorAll('img[async-src]');
+  for (var i = 0; i<asyncImgs.length; i++) {
+    let asyncImg = asyncImgs[i];
+    asyncImg.setAttribute("src", asyncImg.getAttribute("async-src"));
+    asyncImg.removeAttribute("async-src");
+  }
 });
